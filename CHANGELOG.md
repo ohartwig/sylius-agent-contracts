@@ -1,3 +1,9 @@
+## [1.1.1](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.1.0...v1.1.1) (2026-07-27)
+
+### :bug: Fixes
+
+* accept Symfony 8 components alongside 7.4 ([631b0e1](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/631b0e11be7bea1b06c6f859fe00ebd6cc923357))
+
 ## [1.1.0](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.0.1...v1.1.0) (2026-07-27)
 
 ### :sparkles: Features

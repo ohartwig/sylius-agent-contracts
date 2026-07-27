@@ -1,3 +1,9 @@
+## [1.1.0](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.0.1...v1.1.0) (2026-07-27)
+
+### :sparkles: Features
+
+* extract AgentContextFactoryInterface ([a702aec](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/a702aec73cd6ed697874f35179e67768d7a79048))
+
 ## [1.0.1](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.0.0...v1.0.1) (2026-07-27)
 
 ### :bug: Fixes

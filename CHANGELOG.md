@@ -1,3 +1,9 @@
+## [1.0.1](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.0.0...v1.0.1) (2026-07-27)
+
+### :bug: Fixes
+
+* point the dev-main branch alias at 1.0 ([f3b4779](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/f3b477907fa9d93069ac9fe8eefd1f87bcd05715))
+
 ## 1.0.0 (2026-07-27)
 
 ### :sparkles: Features

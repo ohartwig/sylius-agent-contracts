@@ -1,0 +1,51 @@
+{
+    "name": "koh/sylius-agent-contracts",
+    "description": "Shared contracts for the koh Sylius agent-readiness bundles: provider interfaces, DI tags, the channel-aware AgentContext and the single response-header listener.",
+    "type": "sylius-bundle",
+    "license": "MIT",
+    "keywords": ["sylius", "agent", "ai", "discovery", "well-known", "contracts"],
+    "authors": [
+        { "name": "Kai Ole Hartwig", "email": "mail@ole-hartwig.eu" }
+    ],
+    "homepage": "https://ole-hartwig.eu/open-source/sylius-agent-ready",
+    "support": {
+        "issues": "https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/-/issues",
+        "source": "https://github.com/ole-hartwig/sylius-agent-contracts"
+    },
+    "require": {
+        "php": "^8.2",
+        "sylius/sylius": "^2.0",
+        "symfony/config": "^7.4",
+        "symfony/dependency-injection": "^7.4",
+        "symfony/http-foundation": "^7.4",
+        "symfony/http-kernel": "^7.4",
+        "symfony/web-link": "^7.4"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.0",
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Koh\\SyliusAgentContracts\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Koh\\SyliusAgentContracts\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.1-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

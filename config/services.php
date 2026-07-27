@@ -6,6 +6,7 @@
 declare(strict_types=1);
 
 use Koh\SyliusAgentContracts\Context\AgentContextFactory;
+use Koh\SyliusAgentContracts\Context\AgentContextFactoryInterface;
 use Koh\SyliusAgentContracts\EventListener\AgentResponseHeaderListener;
 use Koh\SyliusAgentContracts\Http\AgentJsonResponder;
 use Koh\SyliusAgentContracts\Registry\AgentEndpointRegistry;
@@ -34,6 +35,9 @@ return static function (ContainerConfigurator $container): void {
             param('koh_agent.scheme'),
             param('koh_agent.trust_request_host'),
         ])
+        ->public();
+
+    $services->alias(AgentContextFactoryInterface::class, AgentContextFactory::class)
         ->public();
 
     $services->set(AgentJsonResponder::class)

@@ -55,6 +55,7 @@ where a CMS has one site, so every discovery document is channel- *and*
 locale-dependent.
 
 ```php
+// inject Koh\SyliusAgentContracts\Context\AgentContextFactoryInterface
 $context = $agentContextFactory->create();
 
 $context->url('/llms.txt');            // https://shop.example.com/llms.txt
@@ -64,6 +65,10 @@ $context->cacheKey('koh_llms_txt');    // koh_llms_txt.WEB_DE.de_DE
 `AgentContext::cacheKey()` is the only sanctioned way to build a cache key in
 this package family. Skipping it is the classic multi-channel bug: one channel
 warms the cache and every other channel is served its documents.
+
+Depend on `AgentContextFactoryInterface`, not the concrete class — the
+implementation reaches into Sylius' channel and locale contexts, which a unit
+test of your listener has no business booting.
 
 The factory resolves the channel in three stages — Sylius' channel context,
 then a hostname lookup, then the first enabled channel. The fallback matters:

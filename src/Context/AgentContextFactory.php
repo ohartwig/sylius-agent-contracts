@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 /**
  * Builds the AgentContext, tolerating the request shapes real crawlers produce.
  */
-final class AgentContextFactory
+final class AgentContextFactory implements AgentContextFactoryInterface
 {
     /** @param ChannelRepositoryInterface<ChannelInterface> $channelRepository */
     public function __construct(

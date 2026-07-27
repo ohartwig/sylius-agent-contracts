@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace Koh\SyliusAgentContracts\EventListener;
 
-use Koh\SyliusAgentContracts\Context\AgentContextFactory;
+use Koh\SyliusAgentContracts\Context\AgentContextFactoryInterface;
 use Koh\SyliusAgentContracts\Provider\ResponseHeaderContributorInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
@@ -33,7 +33,7 @@ final class AgentResponseHeaderListener
     /** @param iterable<ResponseHeaderContributorInterface> $contributors */
     public function __construct(
         private readonly iterable $contributors,
-        private readonly AgentContextFactory $contextFactory,
+        private readonly AgentContextFactoryInterface $contextFactory,
     ) {
     }
 

@@ -1,3 +1,14 @@
+## [1.2.0](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.1.1...v1.2.0) (2026-07-28)
+
+### :sparkles: Features
+
+* add koh:agent:check ([fded24a](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/fded24ac98844595fd63a9c5314da996e15f4821))
+
+### :repeat: Chores
+
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.24.0 ([a4153be](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/a4153be008e6c5f770eb2724744fbedcb0a96a50))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.24.1 ([6ed94c9](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/6ed94c9fd034d3888824e5d7de0c7835e585ad4f))
+
 ## [1.1.1](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.1.0...v1.1.1) (2026-07-27)
 
 ### :bug: Fixes

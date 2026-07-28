@@ -1,3 +1,13 @@
+## [1.3.0](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.2.1...v1.3.0) (2026-07-28)
+
+### :sparkles: Features
+
+* add REUSE-compliant licensing metadata and contributor docs ([5989999](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/5989999c757d681a28fb3c24fb82f530c5e5c36b))
+
+### :repeat: Chores
+
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.25.1 ([3693963](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/369396354418bf14454bd534494cc57c0ad67948))
+
 ## [1.2.1](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.2.0...v1.2.1) (2026-07-28)
 
 ### :bug: Fixes

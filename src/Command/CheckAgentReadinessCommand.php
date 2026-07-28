@@ -10,6 +10,7 @@ namespace Koh\SyliusAgentContracts\Command;
 use Koh\SyliusAgentContracts\Context\AgentContextFactoryInterface;
 use Koh\SyliusAgentContracts\Registry\AgentEndpointRegistry;
 use Sylius\Component\Channel\Repository\ChannelRepositoryInterface;
+use Sylius\Component\Core\Model\Channel;
 use Sylius\Component\Core\Model\ChannelInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -62,7 +63,7 @@ final class CheckAgentReadinessCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $failures = 0;
 
-        foreach ($this->channels($input) as $channel) {
+        foreach ($this->channels($input, $io) as $channel) {
             $context = $this->contextFactory->create($channel);
             $endpoints = $this->endpoints->all($context);
 
@@ -135,8 +136,32 @@ final class CheckAgentReadinessCommand extends Command
         return ['ok', \sprintf('%d %s', $code, (string) $response->headers->get('Content-Type'))];
     }
 
+    /**
+     * @return list<ChannelInterface>
+     */
+    private function channels(InputInterface $input, SymfonyStyle $io): array
+    {
+        // --routes-only is meant to run as a build gate, where there is often no
+        // database yet. Routing is channel-independent, so a synthetic channel is
+        // enough to walk the registry — and far more useful than refusing to run.
+        if ($input->getOption('routes-only')) {
+            try {
+                return $this->enumerate($input);
+            } catch (\Throwable $exception) {
+                $io->note('No database reachable — checking routes against a synthetic channel.');
+
+                $channel = new Channel();
+                $channel->setCode('_agent_check');
+
+                return [$channel];
+            }
+        }
+
+        return $this->enumerate($input);
+    }
+
     /** @return list<ChannelInterface> */
-    private function channels(InputInterface $input): array
+    private function enumerate(InputInterface $input): array
     {
         $code = $input->getOption('channel');
         if (\is_string($code) && '' !== $code) {

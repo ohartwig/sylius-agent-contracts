@@ -1,3 +1,13 @@
+## [1.2.1](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.2.0...v1.2.1) (2026-07-28)
+
+### :bug: Fixes
+
+* let koh:agent:check --routes-only run without a database ([14be489](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/14be48946fa8aa3978f7c496279b35ad07061d18))
+
+### :repeat: Chores
+
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.25.0 ([48a903f](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/48a903f184f72ab7ebb6406c519813df923a62eb))
+
 ## [1.2.0](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.1.1...v1.2.0) (2026-07-28)
 
 ### :sparkles: Features

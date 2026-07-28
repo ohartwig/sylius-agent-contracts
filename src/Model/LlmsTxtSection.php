@@ -24,7 +24,11 @@ final readonly class LlmsTxtSection
 
     public function toMarkdown(): string
     {
-        $out = '## '.$this->title."\n";
+        // A newline in the title would end the heading and let the rest of the
+        // string open sections of its own — see MarkdownText. The intro below is
+        // left alone on purpose: it is prose, multi-line by design, and it comes
+        // from the provider rather than from shop data.
+        $out = '## '.MarkdownText::inline($this->title)."\n";
 
         if (null !== $this->intro && '' !== $this->intro) {
             $out .= "\n".$this->intro."\n";

@@ -19,10 +19,13 @@ final readonly class LlmsTxtLink
 
     public function toMarkdown(): string
     {
-        $line = \sprintf('- [%s](%s)', $this->title, $this->url);
+        // Titles and descriptions are shop data — taxon and product names reach
+        // this unreviewed. See MarkdownText for why a raw newline here is a
+        // forged section rather than a formatting glitch.
+        $line = \sprintf('- [%s](%s)', MarkdownText::linkTitle($this->title), MarkdownText::inline($this->url));
 
         return null !== $this->description && '' !== $this->description
-            ? $line.': '.$this->description
+            ? $line.': '.MarkdownText::inline($this->description)
             : $line;
     }
 }

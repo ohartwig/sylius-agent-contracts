@@ -5,6 +5,7 @@
 
 declare(strict_types=1);
 
+use Koh\SyliusAgentContracts\Command\CheckAgentReadinessCommand;
 use Koh\SyliusAgentContracts\Context\AgentContextFactory;
 use Koh\SyliusAgentContracts\Context\AgentContextFactoryInterface;
 use Koh\SyliusAgentContracts\EventListener\AgentResponseHeaderListener;
@@ -61,6 +62,16 @@ return static function (ContainerConfigurator $container): void {
             ->args([tagged_iterator($tag)])
             ->public();
     }
+
+    $services->set(CheckAgentReadinessCommand::class)
+        ->args([
+            service(AgentEndpointRegistry::class),
+            service(AgentContextFactoryInterface::class),
+            service('sylius.repository.channel'),
+            service('router'),
+            service('http_kernel'),
+        ])
+        ->tag('console.command');
 
     $services->set(AgentResponseHeaderListener::class)
         ->args([

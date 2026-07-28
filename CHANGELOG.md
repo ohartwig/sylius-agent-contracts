@@ -1,3 +1,15 @@
+## [1.3.1](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.0...v1.3.1) (2026-07-28)
+
+### :bug: Fixes
+
+* stop shop data from forging structure in generated llms.txt ([dc6a39a](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/dc6a39a92472055094f6e7398e14c3c9a0a0c050))
+
+### :repeat: Chores
+
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.26.0 ([7dbfec4](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/7dbfec40aff3665b326a6928676462b31d574f44))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.26.1 ([3bc984a](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/3bc984abc2ae5b74f0d44e49a24b9a8bd3d2f216))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.26.3 ([c50de6a](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/c50de6a8777496f4c592727463a3542caa4a016e))
+
 ## [1.3.0](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.2.1...v1.3.0) (2026-07-28)
 
 ### :sparkles: Features

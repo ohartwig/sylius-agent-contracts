@@ -1,3 +1,13 @@
+## [1.3.3](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.2...v1.3.3) (2026-08-01)
+
+### :zap: Refactor
+
+* **phpstan:** use the shared level-8 standard ([2638ae7](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/2638ae72b00a888aae68a56f9c192fc533e3da19))
+
+### :repeat: Chores
+
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.32.0 ([39de6aa](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/39de6aa40bf54dc95834e31c7bd2d42b8a1e73ab))
+
 ## [1.3.2](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.1...v1.3.2) (2026-08-01)
 
 ### :repeat: Chores

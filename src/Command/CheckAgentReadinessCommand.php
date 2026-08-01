@@ -144,7 +144,7 @@ final class CheckAgentReadinessCommand extends Command
         // --routes-only is meant to run as a build gate, where there is often no
         // database yet. Routing is channel-independent, so a synthetic channel is
         // enough to walk the registry — and far more useful than refusing to run.
-        if ($input->getOption('routes-only')) {
+        if (true === $input->getOption('routes-only')) {
             try {
                 return $this->enumerate($input);
             } catch (\Throwable $exception) {

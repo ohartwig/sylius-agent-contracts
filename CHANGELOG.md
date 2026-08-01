@@ -1,3 +1,13 @@
+## [1.3.4](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.3...v1.3.4) (2026-08-01)
+
+### :bug: Fixes
+
+* **phpstan:** resolve all 3 level-8 findings without suppressions ([eb48e3b](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/eb48e3b73900b2c1049a4f90f27bf5e61f7e9a39))
+
+### :repeat: Chores
+
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.32.2 ([0894956](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/0894956ce2a0d5a61f747b63d1ff44792e33ea52))
+
 ## [1.3.3](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.2...v1.3.3) (2026-08-01)
 
 ### :zap: Refactor

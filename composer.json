@@ -34,6 +34,7 @@
         "symfony/web-link": "^7.4 || ^8.0"
     },
     "require-dev": {
+        "moselwal/dev-sylius": "^1.0",
         "phpstan/phpstan": "^2.0",
         "phpunit/phpunit": "^11.0"
     },
@@ -59,5 +60,14 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://git.ole-hartwig.eu/api/v4/group/175/-/packages/composer/packages.json",
+            "only": [
+                "moselwal/*"
+            ]
+        }
+    ]
 }

@@ -141,23 +141,29 @@ final class CheckAgentReadinessCommand extends Command
      */
     private function channels(InputInterface $input, SymfonyStyle $io): array
     {
-        // --routes-only is meant to run as a build gate, where there is often no
-        // database yet. Routing is channel-independent, so a synthetic channel is
-        // enough to walk the registry — and far more useful than refusing to run.
-        if (true === $input->getOption('routes-only')) {
-            try {
-                return $this->enumerate($input);
-            } catch (\Throwable $exception) {
-                $io->note('No database reachable — checking routes against a synthetic channel.');
-
-                $channel = new Channel();
-                $channel->setCode('_agent_check');
-
-                return [$channel];
+        try {
+            return $this->enumerate($input);
+        } catch (\Throwable $exception) {
+            // --routes-only is meant to run as a build gate, where there is often
+            // no database yet. Routing is channel-independent, so a synthetic
+            // channel is enough to walk the registry — and far more useful than
+            // refusing to run.
+            //
+            // An unknown --channel is a caller error rather than a missing
+            // database, and must never be rescued this way: the synthetic channel
+            // would answer for it, and a typo in the channel code would come back
+            // as a green gate that checked nothing the operator asked about.
+            if (true !== $input->getOption('routes-only') || $exception instanceof \InvalidArgumentException) {
+                throw $exception;
             }
-        }
 
-        return $this->enumerate($input);
+            $io->note('No database reachable — checking routes against a synthetic channel.');
+
+            $channel = new Channel();
+            $channel->setCode('_agent_check');
+
+            return [$channel];
+        }
     }
 
     /** @return list<ChannelInterface> */

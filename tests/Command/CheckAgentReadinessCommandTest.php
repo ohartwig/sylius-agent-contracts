@@ -284,6 +284,34 @@ final class CheckAgentReadinessCommandTest extends TestCase
     }
 
     /**
+     * The synthetic-channel rescue exists for a missing database, and an unknown
+     * --channel is not one. Rescuing it makes the synthetic channel answer for a
+     * channel the operator explicitly named, so a typo comes back as a green
+     * gate that checked nothing they asked about — in the one mode that runs
+     * unattended in a build.
+     */
+    public function testUnknownChannelCodeIsRejectedEvenInRoutesOnlyMode(): void
+    {
+        $repository = $this->createMock(ChannelRepositoryInterface::class);
+        $repository->method('findOneByCode')->willReturn(null);
+
+        $tester = $this->tester(
+            endpoints: [new AgentEndpoint('/llms.txt', 'llms.txt')],
+            repository: $repository,
+            router: $this->routerMatchingEverything(),
+        );
+
+        try {
+            $tester->execute(['--channel' => 'NOPE', '--routes-only' => true]);
+            self::fail('An unknown channel code must not fall back to the synthetic channel.');
+        } catch (\InvalidArgumentException $exception) {
+            self::assertStringContainsString('No channel with code "NOPE"', $exception->getMessage());
+        }
+
+        self::assertStringNotContainsString('_agent_check', $tester->getDisplay());
+    }
+
+    /**
      * Without --routes-only there is no synthetic-channel rescue: a missing
      * database has to surface, because the run would otherwise report a clean
      * result for a shop it never reached.

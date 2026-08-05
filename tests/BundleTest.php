@@ -65,6 +65,21 @@ final class BundleTest extends TestCase
         self::assertSame('Magazin', $sections[0]->title);
     }
 
+    /**
+     * AbstractBundle resolves config/ relative to getPath(), and this package
+     * keeps config/ at the package root rather than under src/. If the override
+     * ever went away the default would point at src/, loadExtension()'s
+     * '../config/services.php' would resolve outside the package, and the
+     * failure would surface as an unrelated "service not found" in a consumer.
+     */
+    public function testTheBundlePathIsThePackageRootWhereConfigActuallyLives(): void
+    {
+        $path = (new KohSyliusAgentContractsBundle())->getPath();
+
+        self::assertFileExists($path.'/config/services.php');
+        self::assertSame(\dirname(__DIR__), $path);
+    }
+
     public function testConfiguredSchemeReachesTheParameters(): void
     {
         $container = $this->compile(config: ['scheme' => 'http', 'cache' => ['max_age' => 60]]);

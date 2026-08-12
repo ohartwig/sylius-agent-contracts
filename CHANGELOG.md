@@ -1,3 +1,9 @@
+## [1.3.7](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.6...v1.3.7) (2026-08-12)
+
+### :bug: Fixes
+
+* **deps:** update dependency php to ^8.5.9 ([dd5b11b](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/dd5b11be5f6ff8e665b7e59312a02d20d8790066))
+
 ## [1.3.6](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.5...v1.3.6) (2026-08-12)
 
 ### :repeat: Chores

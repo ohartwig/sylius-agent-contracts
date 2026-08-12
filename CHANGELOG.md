@@ -1,3 +1,45 @@
+## [1.3.5](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.4...v1.3.5) (2026-08-12)
+
+### :bug: Fixes
+
+* **command:** stop a typo in --channel from passing the readiness gate ([89366d7](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/89366d7d9740fe5464c78645a886a257c0398a84))
+* **deps:** require symfony/event-dispatcher, drop symfony/web-link ([eeca3ab](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/eeca3ab29110e5b66b63ae670b0025795f5e4b42))
+* **deps:** update dependency sylius/sylius to ^2.0.18 [security] ([39bec0e](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/39bec0ecfc1729967f983aace5c205c9cdb2c79a))
+
+### :white_check_mark: Tests
+
+* assert the bundle path resolves where config actually lives ([24ae6ea](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/24ae6ea6adc3eb39dd7628c34df0bbfbfdf99986))
+* cover the channel and base-URL resolution the factory exists for ([e946277](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/e946277b950539e49724a6573d77dbb491182830))
+* cover the price declaration and the two document wire formats ([8f69b0e](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/8f69b0e17185079993abe7eb7240b4cba9b9d275))
+* pin the two guards the shared response listener depends on ([1fd05c2](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/1fd05c2f8a01a809f6b9d349db640e692d7a12d1))
+* prove the readiness gate actually fails when the shop is broken ([ae45600](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/ae4560012035f95a711128f40b50dd2cf12e42a3))
+
+### :repeat: Continuous Integrations
+
+* follow the composed pipeline on [@1](https://git.ole-hartwig.eu/1) instead of an exact pin ([720bea3](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/720bea3092bdb38c8a99d7d86b05d32698b04f14))
+
+### :repeat: Chores
+
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.32.5 ([a8acace](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/a8acace4699c5c6f9c3d9dc43d87e3040093ab0b))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.32.6 ([f3f920e](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/f3f920e09bc1f444fd5c629b17068fc4eac722d7))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.32.7 ([9604ae0](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/9604ae0d360ea3b1fdc0c13adc5d51cc6069405b))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.33.0 ([0420ca9](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/0420ca98a2a511d930cfed7b8606673dfbb1c161))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.34.0 ([fcc7df0](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/fcc7df0c5f32aae8c3d1a6370fdcf525e8cdf5fd))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.34.1 ([af44c95](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/af44c9574966ee0c6ae381c39f502ec987d3bee7))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.34.2 ([d273e03](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/d273e03eb6c2dbfed7ef8c551f94dd823864375e))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.35.0 ([ff1933c](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/ff1933cddce174419d57d9763f70660919542e18))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.35.1 ([cce1449](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/cce1449f6340544343544f0e5e0a986f9e0e2d7b))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.35.2 ([1cd6eb8](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/1cd6eb846f8d20152f4135db40adc0e6f4b179ef))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.36.0 ([bdea10c](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/bdea10c076e061c4292ffaf2fbeaaf50ad8796a1))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.36.12 ([9c4211c](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/9c4211ccb369bbfbd003b681ce9b332de9beb5b7))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.36.2 ([e3b1ff0](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/e3b1ff03bcf45562669ca1c37611ca73fd519517))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.36.4 ([a0493fc](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/a0493fc3267a72604edb26875991bb99d13c033a))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.36.5 ([30e9277](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/30e92778d24c624b12fa77ba35b5755f4cb3b05d))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.36.6 ([0134059](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/0134059f301d311979d1bd1a1972e169137550c2))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v1.36.8 ([74f8af8](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/74f8af8e3ea63a34372bd0f69f6f6b8edcc44eeb))
+* **deps:** update dependency phpunit/phpunit to ^11.5.50 [security] ([034ec06](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/034ec0662ec222091d99004955a9b153b4de3a40))
+* **security:** Templates auf devops/repo-templates abgleichen ([3bee2dc](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/3bee2dccb51a995c3dbb4b297f5755b36d357003))
+
 ## [1.3.4](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.3...v1.3.4) (2026-08-01)
 
 ### :bug: Fixes

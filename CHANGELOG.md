@@ -1,3 +1,9 @@
+## [1.3.9](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.8...v1.3.9) (2026-08-14)
+
+### :bug: Fixes
+
+* allow the infection extension installer plugin ([05ad099](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/05ad09958c4cc26cebad190deae4722e16a5feb4))
+
 ## [1.3.8](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.7...v1.3.8) (2026-08-13)
 
 ### :bug: Fixes

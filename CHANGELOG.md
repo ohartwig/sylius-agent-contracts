@@ -1,3 +1,9 @@
+## [1.3.10](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.9...v1.3.10) (2026-08-15)
+
+### :repeat: Chores
+
+* **ci:** enrol the Renovate bot's signing key ([40e1026](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/40e10267a083bf1c5c5fec6e9757f23d4134685f))
+
 ## [1.3.9](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.8...v1.3.9) (2026-08-14)
 
 ### :bug: Fixes

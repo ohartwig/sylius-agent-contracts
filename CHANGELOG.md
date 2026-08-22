@@ -1,3 +1,9 @@
+## [1.3.11](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.10...v1.3.11) (2026-08-22)
+
+### :repeat: Chores
+
+* **repo-templates:** sync ([e29bf3a](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/e29bf3a94835bf589b58f0244ddcf8b4a6dc8660))
+
 ## [1.3.10](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.9...v1.3.10) (2026-08-15)
 
 ### :repeat: Chores

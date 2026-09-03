@@ -1,3 +1,9 @@
+## [1.3.18](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.17...v1.3.18) (2026-09-03)
+
+### :bug: Fixes
+
+* **deps:** update dependency sylius/sylius to ^2.2.9 ([1f904fa](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/1f904fa160568cd6f19eff5ae87219e4f806407f))
+
 ## [1.3.17](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.16...v1.3.17) (2026-09-02)
 
 ### :repeat: Chores

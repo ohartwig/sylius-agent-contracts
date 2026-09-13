@@ -1,3 +1,14 @@
+## [1.3.20](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.19...v1.3.20) (2026-09-13)
+
+### :repeat: Continuous Integrations
+
+* release with yasrt ([6bd6947](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/6bd6947dd00d5a25ac0a69debf57855d9a94d6d3))
+
+### :repeat: Chores
+
+* **deps:** update dependency phpstan/phpstan to ^2.2.14 ([eb568ea](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/eb568ea2cd0c19910d1fa32704222b3e2e250eda))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v2 ([e1bd017](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/e1bd0173d4273a24a39561a64c676918e9e2d3e6))
+
 ## [1.3.19](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.18...v1.3.19) (2026-09-04)
 
 ### :repeat: Chores

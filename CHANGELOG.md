@@ -1,3 +1,9 @@
+## [1.3.21](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.20...v1.3.21) (2026-09-14)
+
+### :bug: Fixes
+
+* **docs:** Markdown-Hygiene fuer lint:markdown ([4026d2b](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/4026d2b4ae0e2dcfc150f85b8db19d567690fdc1))
+
 ## [1.3.20](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.19...v1.3.20) (2026-09-13)
 
 ### :repeat: Continuous Integrations

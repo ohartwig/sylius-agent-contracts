@@ -1,3 +1,15 @@
+## [1.3.25](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.24...v1.3.25) (2026-09-28)
+
+### :memo: Documentation
+
+* link the family threat model from the README ([ee0cac3](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/ee0cac33c3621ecedd5e04d44e2b318076108500))
+* point project metadata and contribution paths at GitHub ([1c6951f](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/1c6951f753c0924b4c2dd2ceb70a15e6e2463b00))
+
+### :repeat: Chores
+
+* **reuse:** cover the template-synced .mise.toml and signing key ([3751198](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/3751198bb767c822b17c3769f35ab020327fea70))
+* **license:** name the copyright holder with a contact address ([68918e0](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/68918e0161955adf0a68892ee3d5a382517d8289))
+
 ## [1.3.24](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.23...v1.3.24) (2026-09-26)
 
 ### :repeat: Chores

@@ -1,3 +1,15 @@
+## [1.3.26](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.25...v1.3.26) (2026-09-29)
+
+### :repeat: Continuous Integrations
+
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v2.21.3 ([ad3a123](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/ad3a12379cbed55c1829dd9ebfcb990594a28631))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v2.21.2 ([7473784](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/7473784b74f886d2bb23ffd89dadc4c05eb30a48))
+* mirror releases to GitHub and notify Packagist ([d0926fc](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/d0926fc977763b77128353404d3faf65436be164))
+
+### :repeat: Chores
+
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v2.21.0 ([e0e1c2f](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/e0e1c2fde4ed3320b64a39a741eb88714315cb81))
+
 ## [1.3.25](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.24...v1.3.25) (2026-09-28)
 
 ### :memo: Documentation

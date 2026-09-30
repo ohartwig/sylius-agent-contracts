@@ -1,3 +1,16 @@
+## [1.3.27](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.26...v1.3.27) (2026-09-30)
+
+### :bug: Fixes
+
+* **deps:** update dependency sylius/sylius to ^2.3.0 ([7b3cd2f](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/7b3cd2fe76e7f44a84d3cd51c44c696e2e03bc9a))
+
+### :repeat: Continuous Integrations
+
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v2.21.16 ([9df9571](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/9df9571023c4f7f42751b786e4e609fde05bdc16))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v2.21.11 ([3dfb778](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/3dfb7781608d2528db5f92167a6537196ad5acfd))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v2.21.10 ([6c8d390](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/6c8d390ed4c1c082ce7b4f6df6d125f7b521ada7))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v2.21.9 ([5cd52a5](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/5cd52a539e6928b521e8d99c09764bdc58666ea6))
+
 ## [1.3.26](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.25...v1.3.26) (2026-09-29)
 
 ### :repeat: Continuous Integrations

@@ -1,3 +1,35 @@
+## [1.3.28](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.27...v1.3.28) (2026-10-02)
+
+### :repeat: Continuous Integrations
+
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.38.5 ([9d544b8](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/9d544b8ab316a4d41df0f2ed9bc65e9de5f04b4c))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.38.4 ([786926e](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/786926e0fb5322f3ac445df56842f80c1baab468))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.38.3 ([09269c1](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/09269c12ce5e71ec1b32d623c7980e2f18936ec2))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.38.2 ([7b81362](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/7b81362529f87c4217dfd37d67bc310bbaea7d4b))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.38.1 ([fcf3607](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/fcf360707fed8cbe76205c10c76ffa3d909b97eb))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.38.0 ([779f6d3](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/779f6d3279b84ebba3ddbf96ef28ef9513832cef))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.37.0 ([d859341](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/d859341a8d4ff0de44aef7311a618ec2274f4ec1))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.36.68 ([f741528](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/f741528f594c0707e88e5c5b069d7f6dc83834ee))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.36.67 ([aa09620](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/aa09620294dedf060a3d08a71613e3d653a9e895))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.36.66 ([8a7c2e0](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/8a7c2e0e32d31ebd2ef7eea4ab55f6fe33f1d611))
+* follow composed-default-pipelines on the rolling major tag ([257b695](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/257b695ab76f0748ad1a87eaf9902fef49755a21))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v2.21.27 ([b11a429](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/b11a4297ce3dbd1f02db4fef12a4d37cbb6b2ba0))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v2.21.26 ([e09ebba](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/e09ebba74d32249939125cc49f1cc8f6327877df))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.36.65 ([f8486c0](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/f8486c03d5ad15c76dc9aa8448837b99d3b6e86b))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v2.21.25 ([7ca824d](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/7ca824da9f74e7ebfd44aadc2fdcf3bb340bd352))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v2.21.23 ([dc3930a](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/dc3930afbbd49af54fd8bf80e41d13f5cca2fbaf))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.36.64 ([10acfd9](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/10acfd915fc410737ef9b0bbdb8e3006cb5073e6))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v2.21.21 ([74f7e7f](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/74f7e7f7f319a553bbe1cd59f4377a8f223040bf))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v2.21.20 ([5185182](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/518518244c8c6efdcfcf4454630d5e525f21172e))
+* **deps:** update ci components ([b9caaf8](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/b9caaf8b665cb48050a95b6a830387894e66f91c))
+* **deps:** update dependency devops/ci-cd-components/composed-default-pipelines to v2.21.17 ([8f2bcd3](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/8f2bcd312fbff3382931c1539d9d51f3f0926f8f))
+
+### :repeat: Chores
+
+* **deps:** update dependency devops/ci-cd-components/extension-clean-export to v1.5.6 ([a646f96](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/a646f96828e5a08b32ffbe1dcf04d5ac23291720))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.36.61 ([b104862](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/b104862ddc00429795ac1ca939fef74f804498e1))
+* **repo-templates:** sync ([5a4f880](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/5a4f880ff20115e55890912331bf67d1c88d207d))
+
 ## [1.3.27](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.26...v1.3.27) (2026-09-30)
 
 ### :bug: Fixes

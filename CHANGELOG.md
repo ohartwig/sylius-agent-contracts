@@ -1,3 +1,19 @@
+## [1.3.33](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.32...v1.3.33) (2026-10-09)
+
+### :repeat: Continuous Integrations
+
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.38.33 ([273198f](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/273198fc66c96cd44571ef7872c3199fe301d0db))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.38.32 ([b9dc9b5](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/b9dc9b59da50263208e4308652d6b8880c12f531))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.38.31 ([1b1017e](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/1b1017e096a0a282999bfa9a3b7e738a2989b1fc))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.38.30 ([dc3fbcb](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/dc3fbcbf12a9c75de2333302e6ffc3f4dd02349e))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.38.29 ([e6727f3](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/e6727f3566ab5072bc33f558e14424279f3970e5))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.38.28 ([be98c90](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/be98c904ee0f87c46c80b95ead04eb4e230c35ef))
+* **deps:** update dependency devops/ci-cd-components/lint-tools to v1.38.27 ([f0f0a7f](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/f0f0a7fe683a174e58b02a42570df3de6d3e1372))
+
+### :repeat: Chores
+
+* **deps:** update dependency phpstan/phpstan to ^2.3.1 ([7d64e19](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/7d64e198da8a75a7db218dab88c4eded7d3bbaec))
+
 ## [1.3.32](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.31...v1.3.32) (2026-10-07)
 
 ### :repeat: Continuous Integrations

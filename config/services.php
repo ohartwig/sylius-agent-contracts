@@ -77,6 +77,7 @@ return static function (ContainerConfigurator $container): void {
         ->args([
             tagged_iterator('koh_agent.response_header'),
             service(AgentContextFactory::class),
+            service('logger')->nullOnInvalid(),
         ])
         ->tag('kernel.event_listener', [
             'event' => 'kernel.response',

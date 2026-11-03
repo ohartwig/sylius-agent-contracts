@@ -58,6 +58,27 @@ final class AgentResponseHeaderListenerTest extends TestCase
     }
 
     /**
+     * AUD-071-F03: "no enabled channel" must not turn every page of the shop,
+     * the admin included, into a 500.
+     */
+    public function testAContextFailureLeavesTheResponseUntouched(): void
+    {
+        $factory = $this->createMock(AgentContextFactoryInterface::class);
+        $factory->method('create')->willThrowException(new \LogicException('No enabled Sylius channel'));
+
+        $contributor = $this->recordingContributor(supports: true);
+        $response = new Response('body', 200, ['Content-Type' => 'text/html']);
+        $before = $response->headers->all();
+
+        $listener = new AgentResponseHeaderListener([$contributor], $factory);
+        $listener($this->event(new Request(), $response));
+
+        self::assertSame(0, $contributor->contributeCalls);
+        self::assertSame($before, $response->headers->all());
+        self::assertSame(200, $response->getStatusCode());
+    }
+
+    /**
      * With no contributors registered at all — this package installed on its
      * own, which is a supported state — the listener must leave the response
      * byte-for-byte alone and never reach for the channel repository.

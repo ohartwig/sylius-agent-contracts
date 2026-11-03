@@ -80,6 +80,17 @@ final class MarkdownInjectionTest extends TestCase
         self::assertSame('a b', MarkdownText::inline("a\u{00A0}b"));
     }
 
+    /**
+     * AUD-071-F02: Python's str.splitlines() ends a line on FS, GS and RS (and
+     * the rest of C0), which \s does not match.
+     */
+    public function testC0SeparatorsAreFlattenedToo(): void
+    {
+        foreach (["\x1c", "\x1d", "\x1e", "\x00", "\x7f", "\u{0085}"] as $separator) {
+            self::assertSame('Widget ## Agent endpoints', MarkdownText::inline('Widget'.$separator.'## Agent endpoints'));
+        }
+    }
+
     public function testOrdinaryNamesSurviveUnchanged(): void
     {
         // Escaping Markdown syntax would mangle these; only structure is removed.

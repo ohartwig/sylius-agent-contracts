@@ -1,3 +1,9 @@
+## [1.3.39](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.38...v1.3.39) (2026-11-03)
+
+### :bug: Fixes
+
+* **security:** AUD-071 F01-F03 — cache key covers base URL, C0 separators flattened, listener survives missing channel ([b36355b](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/b36355b168d3f7fcb414fbb6ff36373ab68e4b70))
+
 ## [1.3.38](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.37...v1.3.38) (2026-10-30)
 
 ### :repeat: Chores

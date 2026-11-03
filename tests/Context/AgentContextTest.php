@@ -31,7 +31,23 @@ final class AgentContextTest extends TestCase
 
     public function testCacheKeyIsScopedToChannelAndLocale(): void
     {
-        self::assertSame('koh_llms_txt.WEB_DE.de_DE', $this->context()->cacheKey('koh_llms_txt'));
+        self::assertStringStartsWith('koh_llms_txt.WEB_DE.de_DE.', $this->context()->cacheKey('koh_llms_txt'));
+    }
+
+    /**
+     * AUD-071-F01: where the base URL is derived from the request host, two
+     * hosts of the same channel and locale produce different documents and must
+     * not share a cache entry.
+     */
+    public function testCacheKeyDiffersBetweenBaseUrls(): void
+    {
+        $other = $this->context(baseUrl: 'http://localhost');
+
+        self::assertNotSame(
+            $this->context()->cacheKey('koh_llms_txt'),
+            $other->cacheKey('koh_llms_txt'),
+        );
+        self::assertSame($this->context()->cacheKey('koh_llms_txt'), $this->context()->cacheKey('koh_llms_txt'));
     }
 
     /**
@@ -48,14 +64,14 @@ final class AgentContextTest extends TestCase
         );
     }
 
-    private function context(string $channelCode = 'WEB_DE', string $localeCode = 'de_DE'): AgentContext
+    private function context(string $channelCode = 'WEB_DE', string $localeCode = 'de_DE', string $baseUrl = 'https://shop.example.com'): AgentContext
     {
         $channel = $this->createMock(ChannelInterface::class);
         $channel->method('getCode')->willReturn($channelCode);
 
         return new AgentContext(
             channel: $channel,
-            baseUrl: 'https://shop.example.com',
+            baseUrl: $baseUrl,
             localeCode: $localeCode,
             localeCodes: [$localeCode],
         );

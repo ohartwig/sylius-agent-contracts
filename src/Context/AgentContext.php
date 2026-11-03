@@ -46,10 +46,18 @@ final readonly class AgentContext
      * The only sanctioned way to build a cache key in this package family.
      *
      * Forgetting the channel here is the classic multi-channel bug — one channel
-     * warms the cache and every other channel is served its documents.
+     * warms the cache and every other channel is served its documents. The base
+     * URL is part of the key for the same reason: where it is derived from the
+     * request host, two hosts of one channel must not share a cache entry.
      */
     public function cacheKey(string $prefix): string
     {
-        return \sprintf('%s.%s.%s', $prefix, (string) $this->channel->getCode(), $this->localeCode);
+        return \sprintf(
+            '%s.%s.%s.%s',
+            $prefix,
+            (string) $this->channel->getCode(),
+            $this->localeCode,
+            hash('xxh32', $this->baseUrl),
+        );
     }
 }

@@ -38,7 +38,9 @@ final readonly class MarkdownText
     {
         // \s misses the Unicode line separators, and U+2028 ends a line in a
         // JavaScript-based renderer even though PHP does not treat it as one.
-        $flattened = preg_replace('/[\s\x{00A0}\x{2028}\x{2029}]+/u', ' ', $text);
+        // The C0 range covers FS, GS and RS, which Python's str.splitlines()
+        // treats as line ends.
+        $flattened = preg_replace('/[\s\x{0000}-\x{001F}\x{007F}\x{0085}\x{00A0}\x{2028}\x{2029}]+/u', ' ', $text);
 
         // preg_replace returns null on malformed UTF-8. Falling through with the
         // original string would reintroduce exactly what this call removes, so

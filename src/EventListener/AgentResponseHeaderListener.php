@@ -9,6 +9,8 @@ namespace Koh\SyliusAgentContracts\EventListener;
 
 use Koh\SyliusAgentContracts\Context\AgentContextFactoryInterface;
 use Koh\SyliusAgentContracts\Provider\ResponseHeaderContributorInterface;
+use Sylius\Component\Channel\Context\ChannelNotFoundException;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
@@ -34,6 +36,7 @@ final class AgentResponseHeaderListener
     public function __construct(
         private readonly iterable $contributors,
         private readonly AgentContextFactoryInterface $contextFactory,
+        private readonly ?LoggerInterface $logger = null,
     ) {
     }
 
@@ -59,7 +62,17 @@ final class AgentResponseHeaderListener
 
         // Building the context can hit the channel repository — only pay for it
         // once at least one contributor wants to run.
-        $context = $this->contextFactory->create();
+        //
+        // "No enabled channel" is a hard failure for a discovery controller, but
+        // here it would replace every page of the shop, the admin included, with
+        // a 500. Skip the contributors instead and say why once.
+        try {
+            $context = $this->contextFactory->create();
+        } catch (\LogicException|ChannelNotFoundException $e) {
+            $this->logger?->warning('Agent response headers skipped: no agent context could be built.', ['exception' => $e]);
+
+            return;
+        }
 
         foreach ($applicable as $contributor) {
             $contributor->contribute($request, $response, $context);

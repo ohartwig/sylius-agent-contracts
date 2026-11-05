@@ -14,7 +14,7 @@ path = [
     ".gitattributes",
     ".gitignore",
     "composer.json",
-    "composer-require-checker.json",
+    ".composer-require-checker.json",
     "renovate.json",
     "composer.lock",
     "phpstan.neon",

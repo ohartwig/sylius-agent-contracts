@@ -1,3 +1,22 @@
+## [1.5.0](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.4.0...v1.5.0) (2026-11-05)
+
+### :sparkles: Features
+
+* **cart:** shared CartHandoff for handing agent selections to the buyer's cart ([7965d82](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/7965d82cbcf2d76f80cb871e0062c4f30e6db2e7))
+
+### :bug: Fixes
+
+* **composer:** declare sylius/resource and the event-dispatcher contracts ([09af7da](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/09af7da2c52fe2e5b2d12638df3ab0ed863b2a6f))
+
+### :repeat: Continuous Integrations
+
+* **require-checker:** use the config name the CI component reads ([0923b3f](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/0923b3f46ab7e491f43d54aa7d2b79d22c4ad9ac))
+* **require-checker:** whitelist the Sylius resource factory interface ([d42a8df](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/d42a8dfaa381ccfd73db510b778a4fadda28ff2a))
+
+### :repeat: Chores
+
+* **ci:** retrigger the merge request pipeline ([5eabd09](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/5eabd09520016ac5d8f4c85295ef55104e2f3134))
+
 ## [1.4.0](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.39...v1.4.0) (2026-11-05)
 
 ### :sparkles: Features

@@ -132,4 +132,45 @@ final class PayableOperationTest extends TestCase
         self::assertSame('stripe', $offer['method']);
         self::assertArrayNotHasKey('path', $offer);
     }
+
+    /**
+     * x402 is a protocol of its own, not an MPP method: MPP method identifiers
+     * are lowercase letters only, so an x402 price must never reach
+     * `x-payment-info`, where an MPP client would wait for a challenge that
+     * never comes.
+     */
+    public function testAnX402PricedOperationIsNotAnMppOffer(): void
+    {
+        self::assertFalse((new PayableOperation('/api/agent/feed', amount: '2500'))->isMppOffer());
+        self::assertFalse((new PayableOperation('/api/agent/feed', payMethod: PayableOperation::PAY_METHOD_X402, amount: '2500'))->isMppOffer());
+    }
+
+    public function testAConformantMppOfferIsRecognised(): void
+    {
+        self::assertTrue((new PayableOperation('/api/agent/feed', payMethod: 'tempo', amount: '2500'))->isMppOffer());
+        self::assertTrue((new PayableOperation('/api/agent/feed', intent: 'session', payMethod: 'stripe'))->isMppOffer());
+        self::assertTrue((new PayableOperation('/api/agent/feed', payMethod: 'tempo', amount: '0'))->isMppOffer());
+    }
+
+    /** @return iterable<string, array{PayableOperation}> */
+    public static function nonConformantOffers(): iterable
+    {
+        yield 'unknown intent' => [new PayableOperation('/f', intent: 'authorize', payMethod: 'tempo', amount: '1')];
+        yield 'upper-case method' => [new PayableOperation('/f', payMethod: 'Tempo', amount: '1')];
+        yield 'empty method' => [new PayableOperation('/f', payMethod: '', amount: '1')];
+        yield 'method with a digit' => [new PayableOperation('/f', payMethod: 'tempo2', amount: '1')];
+        yield 'method with a hyphen' => [new PayableOperation('/f', payMethod: 'my-rail', amount: '1')];
+        yield 'leading zero' => [new PayableOperation('/f', payMethod: 'tempo', amount: '0100')];
+        yield 'decimal amount' => [new PayableOperation('/f', payMethod: 'tempo', amount: '1.5')];
+        yield 'negative amount' => [new PayableOperation('/f', payMethod: 'tempo', amount: '-1')];
+        yield 'empty amount' => [new PayableOperation('/f', payMethod: 'tempo', amount: '')];
+        yield 'amount with a newline' => [new PayableOperation('/f', payMethod: 'tempo', amount: "1\n")];
+        yield 'method with a newline' => [new PayableOperation('/f', payMethod: "tempo\n", amount: '1')];
+    }
+
+    #[\PHPUnit\Framework\Attributes\DataProvider('nonConformantOffers')]
+    public function testANonConformantOfferIsNotAnMppOffer(PayableOperation $operation): void
+    {
+        self::assertFalse($operation->isMppOffer());
+    }
 }

@@ -92,7 +92,7 @@ services in your own `App\` namespace with no wiring at all.
 | `LlmsTxtSectionProviderInterface` | `koh_agent.llms_txt_section` | llms.txt, llms-full.txt |
 | `MarkdownRepresentationProviderInterface` | `koh_agent.markdown` | `Accept: text/markdown` |
 | `AuthMethodDescriptorInterface` | `koh_agent.auth_method` | auth.md, `agent_auth` metadata |
-| `PayableOperationProviderInterface` | `koh_agent.payable_operation` | MPP `x-payment-info`, x402 |
+| `PayableOperationProviderInterface` | `koh_agent.payable_operation` | MPP `x-payment-info` (only where `isMppOffer()`), x402 |
 | `ResponseHeaderContributorInterface` | `koh_agent.response_header` | the shared response listener |
 | `PaymentBypassVoterInterface` | `koh_agent.payment_bypass` | x402 |
 

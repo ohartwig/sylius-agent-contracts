@@ -1,3 +1,9 @@
+## [1.5.1](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.5.0...v1.5.1) (2026-11-05)
+
+### :bug: Fixes
+
+* **deps:** update composer packages ([6a2c52a](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/6a2c52a5013e577d3f397f1f8223b338824ade42))
+
 ## [1.5.0](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.4.0...v1.5.0) (2026-11-05)
 
 ### :sparkles: Features

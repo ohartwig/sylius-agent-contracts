@@ -36,8 +36,9 @@ final class AuthMethodRegistry
      * The merged `agent_auth` block for the RFC 8414 metadata.
      *
      * List-valued keys union across methods, scalar keys take the first
-     * non-empty value — so a shop offering OAuth *and* x402 advertises both
-     * credential types without either bundle knowing about the other.
+     * non-empty value and objects (`identity_assertion`) merge key by key the
+     * same way — so two methods that each accept a different registration type
+     * advertise both without either bundle knowing about the other.
      *
      * @return array<string, mixed>
      */
@@ -46,15 +47,31 @@ final class AuthMethodRegistry
         $merged = [];
 
         foreach ($this->all($context) as $descriptor) {
-            foreach ($descriptor->toAgentAuthFragment() as $key => $value) {
-                if (\is_array($value)) {
-                    $merged[$key] = array_values(array_unique([...($merged[$key] ?? []), ...$value]));
-                } elseif (!isset($merged[$key])) {
-                    $merged[$key] = $value;
-                }
-            }
+            $merged = self::merge($merged, $descriptor->toAgentAuthFragment());
         }
 
         return $merged;
+    }
+
+    /**
+     * @param array<string, mixed> $into
+     * @param array<string, mixed> $from
+     *
+     * @return array<string, mixed>
+     */
+    private static function merge(array $into, array $from): array
+    {
+        foreach ($from as $key => $value) {
+            $current = $into[$key] ?? null;
+            if (!\is_array($value)) {
+                $into[$key] ??= $value;
+            } elseif (array_is_list($value)) {
+                $into[$key] = array_values(array_unique([...(\is_array($current) ? $current : []), ...$value]));
+            } else {
+                $into[$key] = self::merge(\is_array($current) ? $current : [], $value);
+            }
+        }
+
+        return $into;
     }
 }

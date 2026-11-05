@@ -68,8 +68,8 @@ final class RegistryTest extends TestCase
     }
 
     /**
-     * A shop offering OAuth *and* x402 must advertise both credential types,
-     * without either bundle knowing the other exists.
+     * Two methods that each accept a different registration type must
+     * advertise both, without either bundle knowing the other exists.
      */
     public function testAgentAuthUnionsListsAcrossMethods(): void
     {
@@ -78,27 +78,41 @@ final class RegistryTest extends TestCase
                 id: 'oauth2',
                 title: 'OAuth 2.1',
                 documentation: '',
-                registerUri: 'https://shop.example.com/mcp/oauth/register',
-                credentialTypes: ['oauth2_access_token'],
-                identityTypes: ['identity_assertion'],
+                skillUri: 'https://shop.example.com/auth.md',
+                identityTypes: ['anonymous'],
+                identityEndpoint: 'https://shop.example.com/mcp/oauth/agent/identity',
             )),
             $this->authProvider(new AuthMethodDescriptor(
-                id: 'web-bot-auth',
-                title: 'Web Bot Auth',
+                id: 'id-jag',
+                title: 'ID-JAG',
                 documentation: '',
-                credentialTypes: ['http_message_signature'],
-                identityTypes: ['anonymous'],
+                skillUri: 'https://other.example.com/auth.md',
+                identityTypes: ['identity_assertion'],
+                identityEndpoint: 'https://other.example.com/identity',
+                assertionTypes: ['urn:ietf:params:oauth:token-type:id-jag'],
+            )),
+            $this->authProvider(new AuthMethodDescriptor(
+                id: 'id-jag-2',
+                title: 'ID-JAG again',
+                documentation: '',
+                identityTypes: ['identity_assertion'],
+                assertionTypes: ['urn:ietf:params:oauth:token-type:id-jag', 'urn:example:other'],
             )),
         ]);
 
-        $agentAuth = $registry->toAgentAuth($this->context());
+        self::assertSame([
+            'skill' => 'https://shop.example.com/auth.md',
+            'identity_endpoint' => 'https://shop.example.com/mcp/oauth/agent/identity',
+            'identity_types_supported' => ['anonymous', 'identity_assertion'],
+            'identity_assertion' => [
+                'assertion_types_supported' => ['urn:ietf:params:oauth:token-type:id-jag', 'urn:example:other'],
+            ],
+        ], $registry->toAgentAuth($this->context()));
+    }
 
-        self::assertSame(
-            ['oauth2_access_token', 'http_message_signature'],
-            $agentAuth['credential_types_supported'],
-        );
-        self::assertSame(['identity_assertion', 'anonymous'], $agentAuth['identity_types_supported']);
-        self::assertSame('https://shop.example.com/mcp/oauth/register', $agentAuth['register_uri']);
+    public function testNoMethodsMeansNoAgentAuth(): void
+    {
+        self::assertSame([], (new AuthMethodRegistry([]))->toAgentAuth($this->context()));
     }
 
     private function sectionProvider(string $title, int $priority): LlmsTxtSectionProviderInterface

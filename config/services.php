@@ -5,6 +5,7 @@
 
 declare(strict_types=1);
 
+use Koh\SyliusAgentContracts\Cart\CartHandoff;
 use Koh\SyliusAgentContracts\Command\CheckAgentReadinessCommand;
 use Koh\SyliusAgentContracts\Context\AgentContextFactory;
 use Koh\SyliusAgentContracts\Context\AgentContextFactoryInterface;
@@ -45,6 +46,20 @@ return static function (ContainerConfigurator $container): void {
         ->args([
             param('koh_agent.cache.max_age'),
             param('koh_agent.cache.stale_while_revalidate'),
+        ])
+        ->public();
+
+    // Public: the protocol bundles (ACP, UCP) hand carts over through it.
+    $services->set(CartHandoff::class)
+        ->args([
+            service('sylius.context.cart'),
+            service('sylius.factory.order_item'),
+            service('sylius.modifier.order_item_quantity'),
+            service('sylius.factory.add_to_cart_command'),
+            service('event_dispatcher'),
+            service('sylius.manager.order'),
+            param('koh_agent.cart_handoff.runtime_exception_is_refusal'),
+            service('logger')->nullOnInvalid(),
         ])
         ->public();
 

@@ -86,6 +86,15 @@ final class KohSyliusAgentContractsBundle extends AbstractBundle
                         ->integerNode('stale_while_revalidate')->defaultValue(86400)->end()
                     ->end()
                 ->end()
+                ->arrayNode('cart_handoff')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->booleanNode('runtime_exception_is_refusal')
+                            ->defaultTrue()
+                            ->info('Read any RuntimeException from a sylius.cart_item_add listener as a gate refusal, not only exceptions implementing CartGateRefusalInterface. Backwards compatibility; switch off once the gates implement the interface.')
+                        ->end()
+                    ->end()
+                ->end()
             ->end();
     }
 
@@ -100,6 +109,8 @@ final class KohSyliusAgentContractsBundle extends AbstractBundle
         $builder->setParameter('koh_agent.trust_request_host', (bool) ($config['trust_request_host'] ?? false));
         $builder->setParameter('koh_agent.cache.max_age', (int) ($cache['max_age'] ?? 3600));
         $builder->setParameter('koh_agent.cache.stale_while_revalidate', (int) ($cache['stale_while_revalidate'] ?? 86400));
+        $handoff = \is_array($config['cart_handoff'] ?? null) ? $config['cart_handoff'] : [];
+        $builder->setParameter('koh_agent.cart_handoff.runtime_exception_is_refusal', (bool) ($handoff['runtime_exception_is_refusal'] ?? true));
 
         $container->import('../config/services.php');
     }

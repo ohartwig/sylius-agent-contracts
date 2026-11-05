@@ -44,6 +44,12 @@ koh_agent:
     cache:
         max_age: 3600
         stale_while_revalidate: 86400
+
+    cart_handoff:
+        # Read any RuntimeException from a sylius.cart_item_add listener as a
+        # gate refusal (see CartHandoff below). Switch off once your gates
+        # implement CartGateRefusalInterface.
+        runtime_exception_is_refusal: true
 ```
 
 ## What you get
@@ -128,6 +134,55 @@ max-age=3600, stale-while-revalidate=86400`, an ETag (returning crawlers send
 `If-None-Match`, and a 304 is far cheaper than a rebuild),
 `X-Content-Type-Options: nosniff` and `Access-Control-Allow-Origin: *` — in-browser
 agents read these cross-origin.
+
+### `CartHandoff`
+
+The one way the protocol bundles (ACP's `continue_url`, UCP's permalink) hand
+an agent's selection over to the buyer's own storefront cart. The bundle parses
+its link and resolves the variants; `CartHandoff` does the rest:
+
+```php
+// inject Koh\SyliusAgentContracts\Cart\CartHandoff
+if ($handoff->wasHandedOver($session, 'my_bundle.handoffs', $id, $version)) {
+    return $handoff->redirect($cartUrl);
+}
+
+$result = $handoff->handOver([new CartHandoffLine($variant, 2)]);
+if ($result->isRefused()) {
+    $handoff->flash($session, 'info', 'my_bundle.blocked');
+
+    return $handoff->redirect($fallbackUrl);
+}
+
+$handoff->remember($session, 'my_bundle.handoffs', $id, $version);
+```
+
+- Each line goes into the cart through `sylius.cart_item_add`, the event the
+  storefront's add-to-cart button fires, so every gate the shop hangs on it
+  (age confirmation, quantity rules) runs as if the buyer had clicked.
+- `handOver()` returns a `CartHandoffResult`: `Added` (cart saved),
+  `Refused` (a gate said no; lines added before are undone, nothing is saved,
+  the exception is in `$result->refusal`) or `NothingAdded` (no lines; the
+  cart was not touched).
+- The session ledger keeps the latest 20 handoffs per key, so opening a link
+  twice does not add the items twice; a new `$version` hands over again.
+- `redirect()` answers with `Cache-Control: no-store` and
+  `Referrer-Policy: no-referrer`.
+
+**Gate refusals.** A gate refuses by throwing. Implement
+`Koh\SyliusAgentContracts\Cart\CartGateRefusalInterface` on that exception
+so the handoff can tell a refusal from a failure:
+
+```php
+final class AgeNotConfirmedException extends \RuntimeException implements CartGateRefusalInterface {}
+```
+
+For backwards compatibility any `\RuntimeException` still counts as a refusal
+(logged at `info`). Once your gates implement the interface, set
+`koh_agent.cart_handoff.runtime_exception_is_refusal: false`, and a listener
+that breaks shows up as the error it is instead of a "blocked" notice.
+
+The service keeps no request state; it is safe in FrankenPHP worker mode.
 
 ### `AgentResponseHeaderListener`
 

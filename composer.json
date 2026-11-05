@@ -32,14 +32,14 @@
         "symfony/console": "^7.4 || ^8.0",
         "symfony/dependency-injection": "^7.4 || ^8.0",
         "symfony/event-dispatcher": "^7.4 || ^8.0",
-        "symfony/event-dispatcher-contracts": "^3.4",
+        "symfony/event-dispatcher-contracts": "^3.8.1",
         "symfony/http-foundation": "^7.4 || ^8.0",
         "symfony/http-kernel": "^7.4 || ^8.0",
         "symfony/routing": "^7.4 || ^8.0"
     },
     "require-dev": {
         "koh/dev-sylius": "^1.0",
-        "phpstan/phpstan": "^2.3.4",
+        "phpstan/phpstan": "^2.3.5",
         "phpunit/phpunit": "^11.5.57"
     },
     "autoload": {

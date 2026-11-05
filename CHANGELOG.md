@@ -1,3 +1,17 @@
+## [1.4.0](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.39...v1.4.0) (2026-11-05)
+
+### :sparkles: Features
+
+* **auth:** emit the auth.md v0.6.0 agent_auth field names ([65d63e7](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/65d63e7bee3fa0f615dd872cf429ebf125c7a48a))
+
+### :bug: Fixes
+
+* **payable:** tell an MPP offer apart from an x402 price ([8f3c06d](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/8f3c06d2c0fe77114eda6fbda8100c0acb68aa21))
+
+### :repeat: Chores
+
+* **reuse:** add the licence header to infection.json5 ([54733b5](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/54733b52cbf55f642021fd05678e937ef3c087f6))
+
 ## [1.3.39](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.3.38...v1.3.39) (2026-11-03)
 
 ### :bug: Fixes

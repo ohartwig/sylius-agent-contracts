@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace Koh\SyliusAgentContracts\Tests;
 
+use Doctrine\Persistence\ObjectManager;
+use Koh\SyliusAgentContracts\Cart\CartHandoff;
 use Koh\SyliusAgentContracts\Context\AgentContext;
 use Koh\SyliusAgentContracts\Http\AgentJsonResponder;
 use Koh\SyliusAgentContracts\KohSyliusAgentContractsBundle;
@@ -15,12 +17,17 @@ use Koh\SyliusAgentContracts\Model\LlmsTxtSection;
 use Koh\SyliusAgentContracts\Provider\LlmsTxtSectionProviderInterface;
 use Koh\SyliusAgentContracts\Registry\LlmsTxtSectionRegistry;
 use PHPUnit\Framework\TestCase;
+use Sylius\Bundle\OrderBundle\Factory\AddToCartCommandFactoryInterface;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Channel\Repository\ChannelRepositoryInterface;
 use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Locale\Context\LocaleContextInterface;
+use Sylius\Component\Order\Context\CartContextInterface;
+use Sylius\Component\Order\Modifier\OrderItemQuantityModifierInterface;
+use Sylius\Resource\Factory\FactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
@@ -89,6 +96,37 @@ final class BundleTest extends TestCase
         self::assertFalse($container->getParameter('koh_agent.trust_request_host'));
     }
 
+    public function testTheCartHandoffIsWiredWithTheRuntimeExceptionFallbackOn(): void
+    {
+        $container = $this->compile();
+        $this->provideCartServices($container);
+
+        self::assertTrue($container->getParameter('koh_agent.cart_handoff.runtime_exception_is_refusal'));
+        self::assertInstanceOf(CartHandoff::class, $container->get(CartHandoff::class));
+        self::assertTrue($container->getDefinition(CartHandoff::class)->getArgument(6));
+    }
+
+    public function testTheRuntimeExceptionFallbackCanBeSwitchedOff(): void
+    {
+        $container = $this->compile(config: ['cart_handoff' => ['runtime_exception_is_refusal' => false]]);
+
+        self::assertFalse($container->getParameter('koh_agent.cart_handoff.runtime_exception_is_refusal'));
+        self::assertFalse($container->getDefinition(CartHandoff::class)->getArgument(6));
+    }
+
+    private function provideCartServices(ContainerBuilder $container): void
+    {
+        foreach ([
+            'sylius.context.cart' => $this->createStub(CartContextInterface::class),
+            'sylius.factory.order_item' => $this->createStub(FactoryInterface::class),
+            'sylius.modifier.order_item_quantity' => $this->createStub(OrderItemQuantityModifierInterface::class),
+            'sylius.factory.add_to_cart_command' => $this->createStub(AddToCartCommandFactoryInterface::class),
+            'sylius.manager.order' => $this->createStub(ObjectManager::class),
+        ] as $id => $service) {
+            $container->set($id, $service);
+        }
+    }
+
     /** @param array<string, mixed> $config */
     private function compile(?callable $decorate = null, array $config = []): ContainerBuilder
     {
@@ -113,10 +151,16 @@ final class BundleTest extends TestCase
             'sylius.context.channel' => ChannelContextInterface::class,
             'sylius.repository.channel' => ChannelRepositoryInterface::class,
             'sylius.context.locale' => LocaleContextInterface::class,
+            'sylius.context.cart' => CartContextInterface::class,
+            'sylius.factory.order_item' => FactoryInterface::class,
+            'sylius.modifier.order_item_quantity' => OrderItemQuantityModifierInterface::class,
+            'sylius.factory.add_to_cart_command' => AddToCartCommandFactoryInterface::class,
+            'sylius.manager.order' => ObjectManager::class,
         ] as $id => $class) {
             $container->setDefinition($id, (new Definition($class))->setSynthetic(true));
         }
         $container->setDefinition('request_stack', new Definition(RequestStack::class));
+        $container->setDefinition('event_dispatcher', new Definition(EventDispatcher::class));
 
         if (null !== $decorate) {
             $decorate($container);

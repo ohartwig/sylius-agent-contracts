@@ -1,3 +1,9 @@
+## [1.5.2](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.5.1...v1.5.2) (2026-11-14)
+
+### :repeat: Chores
+
+* **deps:** update dependency phpunit/phpunit to ^11.5.58 ([2c8ed25](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/2c8ed25fdae616f8c4a337210e6b77e2949a8abd))
+
 ## [1.5.1](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.5.0...v1.5.1) (2026-11-05)
 
 ### :bug: Fixes

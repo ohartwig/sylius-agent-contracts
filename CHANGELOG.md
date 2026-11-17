@@ -1,3 +1,9 @@
+## [1.5.4](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.5.3...v1.5.4) (2026-11-17)
+
+### :bug: Fixes
+
+* **composer:** point homepage at the package page ([33b38cf](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/33b38cfaa54f8eb67044ecacd9940ef645ddf40e))
+
 ## [1.5.3](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.5.2...v1.5.3) (2026-11-17)
 
 ### :repeat: Chores

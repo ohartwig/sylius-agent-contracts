@@ -1,3 +1,9 @@
+## [1.5.3](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.5.2...v1.5.3) (2026-11-17)
+
+### :repeat: Chores
+
+* **deps:** update dependency phpstan/phpstan to ^2.3.6 ([55aa314](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/commit/55aa314fa774669c593196d1c089930a032f890b))
+
 ## [1.5.2](https://git.ole-hartwig.eu/ai-ready-platform/platform/sylius-agent-contracts/compare/v1.5.1...v1.5.2) (2026-11-14)
 
 ### :repeat: Chores
